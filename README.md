@@ -64,9 +64,13 @@
 
 首节点：第一个有效节点
 尾结点：最后一个有效节点
-头结点 ：数据类型和首节点一样。首节点之前的一个节点，不存放有效数据，其作用是为了方便链表的操作。
+**头结点** ：数据类型和首节点一样。首节点之前的一个节点，**不存放有效数据**，其作用是为了方便链表的操作。
 头指针：指向头结点的指针变量，是头结点的地址
 尾指针：指向尾结点的指针变量
+
+<img src='images/链表.jpg'>
+
+
 
 >要对一个链表进行处理，需要知道的参数：头指针。
 >只需要这么一个玩意儿就够了，就可以知道所有的数据，以及链表的长度等信息。
@@ -94,7 +98,7 @@
     出栈
     压栈（入栈）
 
-![图片.png](https://upload-images.jianshu.io/upload_images/5118838-3886d6746fe28850.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![图片.png](F:\CPP_learning\images\动态栈.jpg)
 
 **栈的应用：**
 
@@ -244,8 +248,8 @@ f = (f+1)%maxlen
 
   - 连续存储：用数组存储，必须先转化成完全二叉树
        原因：如果只存储有效节点，那么我们无法知道树是如何构造的。
-    ![](https://upload-images.jianshu.io/upload_images/5118838-02268ae4436dfe48.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-    如图，蓝色点为转化成完全二叉树需要增加的点，黄色框框里的点可以删除。
+    ![](images\二叉树的连续存储.jpg)
+    如图，红色点为转化成完全二叉树需要增加的点，黄色框框里的点可以删除。
     但是这样还是会额外添加很多很多垃圾节点。
 
     优点：查找某节点的父节点、子节点很快。
@@ -266,16 +270,13 @@ f = (f+1)%maxlen
     就是结合上面两种方法
   - 二叉树表示法
     把一个普通树转化成二叉树：
-    每个节点有两个指针，左指针指向其第一个子节点，右指针只向其第一个兄弟节点。这样就可以形成一个二叉树。
-    ![普通树转二叉树](https://upload-images.jianshu.io/upload_images/5118838-019cf45ffc01039e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+    **每个节点有两个指针，左指针指向其第一个子节点，右指针只向其第一个兄弟节点**。这样就可以形成一个二叉树。
+    ![普通树转二叉树](images/一般树的二叉树表示法.jpg)
     可以发现，转过来的二叉树一定没有第一个右分支。
 
 - 森林的存储：
   转化成二叉树存储。
   转化方法跟普通树转二叉树的方式类似，区别就是，森林中，多棵树的根节点我们认为是兄弟关系。
-  ![森林转二叉树](https://upload-images.jianshu.io/upload_images/5118838-bcbea61945969b1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
 
 
 
@@ -291,28 +292,39 @@ f = (f+1)%maxlen
 先中序遍历左子树；
 再访问根节点；
 再中序遍历右子树；
-![](https://upload-images.jianshu.io/upload_images/5118838-270db87d702f6013.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 - 后序遍历[最后访问根节点]：
 先后续遍历左子树；
 再后续遍历右子树；
 再访问根节点。
-![图片.png](https://upload-images.jianshu.io/upload_images/5118838-dfae2af633ab195e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 
-**已知两种遍历序列推出原始二叉树**
+
+**！！已知两种遍历序列推出原始二叉树：**
 已知一个遍历序列，是无法推出原始二叉树是样子的。
 但是，已知先序和中序，或者已知中序和后序，是可以推出来的。
 （但是，已知先序和后序，也是无法推出来的）
 
-例如根据先序、中序求二叉树和后序：
-![](https://upload-images.jianshu.io/upload_images/5118838-9731f2ab7b9674b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![](https://upload-images.jianshu.io/upload_images/5118838-abf9fd1b9add5490.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+实例自查：
+先序：ABCDEFGH
+中序：BDCEAFHG
+\>\>
+后序：DECBHGFA
+
+
+
+先序：ABDGHCEFI
+中序：GDHBAECIF
+\>\>
+后序：GHDBEIFCA
+
+
 
 根据后序、中序求二叉树和先序，也是类似的。
 
-主要的思想就是：通过先序或者后序确定每个树的根节点，然后就可以利用中序把左右树分开，得到新树之后，就又可以通过先序或者后序确定根节点。以此类推。
+主要的思想就是：
+**通过先序或者后序确定每个树的根节点，然后就可以利用中序把左右树分开，得到新树之后，就又可以通过先序或者后序确定根节点。以此类推。**
 
 
 
@@ -339,7 +351,7 @@ f = (f+1)%maxlen
 
 
 
-排序：
+**排序：**
 
 - 冒泡排序：
 
@@ -375,11 +387,11 @@ f = (f+1)%maxlen
 然后将两边的数列进行上面同样的操作。
 
 例如，初试状态：
-![](https://upload-images.jianshu.io/upload_images/5118838-d0f123a75afe0780.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 我们给头尾各设立一个指针，L和H；和一个临时变量val保存第一个元素的值。
 然后我们设定一个规则来移动H和L，以达到我们期望的效果。
 
-![图片.png](https://upload-images.jianshu.io/upload_images/5118838-c1175eaacaa06069.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](images/快速排序示意图.jpg)
 怎么移动呢？
 我们要保证，L指向的位置的左边，一定都小于9；
 H指向的位置的右边，一定都大于9；
@@ -391,18 +403,3 @@ H指向的位置的右边，一定都大于9；
 然后H再次出动，从右到左寻找比9小的值，于是就移动到了2，把2赋值给L位置；
 然后L再移动，经过-5，碰到了H。
 终于，本轮游戏结束，9到了目标位置，同时左右边分得清清楚楚（虽然还是无序的，但是整体是有序的）。
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-

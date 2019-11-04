@@ -35,20 +35,25 @@ int main(void){
 	return 0;
 } 
 
-void initSTACK(PSTACK pS){  // 初始化的目的，就是形成一个空栈，那就是顶部底部指针都指向一个空节点 
+
+// 初始化的目的，就是形成一个空栈
+// 那就是顶部底部指针都指向一个空节点 
+void initSTACK(PSTACK pS){  
 	pS->pTop = (PNODE)malloc(sizeof(NODE));
 	pS->pBottom = pS->pTop;
 	pS->pTop->pNext = NULL; 
 }
 
-bool pushSTACK(PSTACK pS, int val){ // 压栈在任何时候都是可以的，没有限制 
+// 压栈在任何时候都是可以的，没有限制 
+bool pushSTACK(PSTACK pS, int val){ 
 	PNODE p = (PNODE)malloc(sizeof(NODE));
 	p->data = val;
 	p->pNext = pS->pTop;
 	pS->pTop = p;
 }
 
-int popSTACK(PSTACK pS){ // 出栈，基本没有限制，只要有数据 
+// 出栈，基本没有限制，只要有数据 
+int popSTACK(PSTACK pS){ 
 	if (pS->pTop->pNext == NULL) return NULL;
 	PNODE p = pS->pTop;
 	pS->pTop = pS->pTop->pNext;
